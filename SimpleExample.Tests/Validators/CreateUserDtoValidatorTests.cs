@@ -14,6 +14,6 @@ public class CreateUserDtoValidatorTests
         
         var action = () => new User(dto.FirstName, dto.LastName, dto.Email);
         
-        action.Should().NotThrow();
+        action.Should().Throw<ArgumentException>().WithMessage("Etunimi ei voi olla tyhjä. (Parameter 'firstName')");
     }
 }
